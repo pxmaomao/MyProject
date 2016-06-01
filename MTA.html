@@ -1,0 +1,930 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+            font: 12px/1.5 tahoma,arial,"Microsoft Yahei","\5b8b\4f53",sans-serif;
+        }
+
+        body {
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+        }
+
+        header {
+            height: 62px;
+            width: 100%;
+        }
+
+            header .logo {
+                float: left;
+                margin: 14px 0 0 44px;
+            }
+
+                header .logo h1 {
+                    background-image: url(http://mta.qq.com/mta/resource/imgcache/images/logo.png);
+                    width: 157px;
+                    height: 34px;
+                }
+
+            header .top_nav {
+                float: right;
+            }
+
+                header .top_nav ul {
+                    float: left;
+                    list-style-type: none;
+                    margin-right: 30px;
+                }
+
+                    header .top_nav ul li {
+                        position: relative;
+                        float: left;
+                        margin-left: 32px;
+                    }
+
+                header .top_nav a {
+                    display: block;
+                    padding: 18px 10px;
+                    border-bottom: 2px solid transparent;
+                    font-size: 16px;
+                    color: #555;
+                }
+
+                header .top_nav .login {
+                    float: right;
+                    padding-right: 34px;
+                }
+
+        .div_banner {
+            width: 100%;
+            position: relative;
+        }
+
+        .div_banner_content {
+            width: 100%;
+            min-width: 1200px;
+            overflow: hidden;
+        }
+
+        #ul_list {
+            list-style: none;
+            width: 400%;
+            margin-left: 0px;
+            transition: all 1s;
+        }
+
+            #ul_list li {
+                float: left;
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 25%;
+                height: 575px;
+                position: relative;
+            }
+
+        .btn_move {
+            position: absolute;
+            width: 100%;
+            bottom: 20px;
+            text-align: center;
+        }
+
+            .btn_move ul {
+                margin: 0 auto;
+                width: 180px;
+                height: 20px;
+                line-height: 20px;
+                list-style: none;
+                text-align: center;
+            }
+
+                .btn_move ul li {
+                    float: left;
+                    width: 45px;
+                    text-align: center;
+                }
+
+                    .btn_move ul li a {
+                        margin-left: 13px;
+                        display: block;
+                        height: 4px;
+                        width: 25px;
+                        background-color: #AEBADE;
+                    }
+
+                    .btn_move ul li .acitive {
+                        background-color: white;
+                    }
+
+        .top_nav ul li ul {
+            position: absolute;
+            list-style: none;
+            display: none;
+            background-color: white;
+            z-index: 9999;
+            width: 100px;
+            height: 200px;
+            text-align: center;
+        }
+
+        .top_nav ul li:hover ul {
+            display: block;
+        }
+
+        .top_nav ul li ul li {
+            width: 100%;
+            margin: 0px;
+            text-align: center;
+            height: 40px;
+        }
+
+            .top_nav ul li ul li a {
+                padding-top: 10px;
+                font-size: 14px;
+            }
+
+        .div_dongtai {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: #F5F5F5;
+            color: gray;
+        }
+
+        .mok_content {
+            padding-top: 70px;
+            padding-bottom: 80px;
+            width: 100%;
+        }
+
+            .mok_content .title {
+                margin: auto;
+                width: 1200px;
+                text-align: center;
+                font-size: 30px;
+                color: #447ed9;
+            }
+
+                .mok_content .title div {
+                    height: 27px;
+                    line-height: 27px;
+                    font-size: 18px;
+                    color: #555;
+                }
+
+                    .mok_content .title div:before {
+                        content: "";
+                        display: inline-block;
+                        height: 6px;
+                        border-top: 1px solid #e3e3e3;
+                        width: 100px;
+                        margin-right: 20px;
+                    }
+
+                    .mok_content .title div:after {
+                        content: "";
+                        display: inline-block;
+                        height: 6px;
+                        border-top: 1px solid #e3e3e3;
+                        width: 100px;
+                        margin-left: 20px;
+                    }
+
+        .product_serivce_content {
+            margin: auto;
+            margin-top: 70px;
+            width: 1200px;
+            height: 256px;
+            position: relative;
+        }
+
+            .product_serivce_content ul {
+                list-style: none;
+                margin-left: 20px;
+            }
+
+                .product_serivce_content ul li {
+                    float: left;
+                    height: 256px;
+                    width: 256px;
+                    margin-left: -20px;
+                    position: relative;
+                }
+
+                    .product_serivce_content ul li a {
+                        height: 100%;
+                        width: 100%;
+                        display: inline-block;
+                        text-align: center;
+                    }
+
+        .circle {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0px;
+            left: 0px;
+            border: 1px dashed gray;
+            border-radius: 50%;
+        }
+
+        .product_serivce_content ul li:hover .circle {
+            cursor: pointer;
+            animation: circle 0.5s;
+            border: 1px solid #447ed9;
+        }
+
+        .product_serivce_content ul li:hover p {
+            color: #447ed9;
+        }
+
+        @keyframes circle {
+            from {
+                transform: scale(0.7);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+
+
+        .product_serivce_content .icon {
+            margin-left: 78px;
+            margin-top: 32px;
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-image: url(http://mta.qq.com/mta/resource/imgcache/images/home_081415/icon-index.png);
+        }
+
+        .icon_1 {
+            background-position: 5px -2px;
+        }
+
+        .icon_2 {
+            background-position: -351px -2px;
+        }
+
+        .icon_3 {
+            background-position: -84px -2px;
+        }
+
+        .icon_4 {
+            background-position: -173px -2px;
+        }
+
+        .icon_5 {
+            background-position: -262px -2px;
+        }
+
+        .product_serivce_content .tit {
+            color: #111;
+            font-size: 20px;
+            margin-top: 2px;
+        }
+
+        .product_serivce_content .desc {
+            color: gray;
+            line-height: 22px;
+            margin-top: 5px;
+        }
+
+        .btn {
+            position: absolute;
+            top: 351px;
+            left: 112px;
+        }
+
+            .btn a {
+                width: 162px;
+                height: 50px;
+                color: white;
+                display: inline-block;
+                border: 1px solid white;
+                line-height: 50px;
+                text-align: center;
+                font-size: 16px;
+                box-sizing: border-box;
+            }
+
+                .btn a:nth-child(2) {
+                    margin-left: 15px;
+                }
+
+                .btn a:hover {
+                    background-color: white;
+                    color: #4c66c5;
+                }
+
+        .product_trends {
+            background-color: #F5F5F5;
+            height: 374px;
+        }
+
+        .trends_ul {
+            padding-top: 70px;
+            width: 1200px;
+            margin: auto;
+        }
+
+            .trends_ul ul {
+                width: 44%;
+                float: left;
+                padding: 0 10px;
+            }
+
+
+                .trends_ul ul li {
+                    position: relative;
+                    height: 33px;
+                }
+
+                    .trends_ul ul li a {
+                        position: absolute;
+                        left: 10px;
+                        color: black;
+                        font-size: 14px;
+                    }
+
+                        .trends_ul ul li a:hover {
+                            color: #447ed9;
+                            text-decoration: underline;
+                        }
+
+                    .trends_ul ul li span {
+                        position: absolute;
+                        right: 10px;
+                        color: #999999;
+                        font-size: 14px;
+                    }
+
+        .border {
+            width: 1px;
+            width: 8%;
+            height: 140px;
+            float: left;
+        }
+
+        .btn_more {
+            width: 100%;
+            text-align: center;
+            margin-top: 55px;
+        }
+
+            .btn_more a {
+                width: 120px;
+                height: 36px;
+                color: #999999;
+                display: inline-block;
+                border: 1px solid #bdbdbd;
+                line-height: 36px;
+                text-align: center;
+                font-size: 14px;
+            }
+
+                .btn_more a:hover {
+                    background-color: #447ed9;
+                    color: white;
+                    border-color: #447ed9;
+                }
+
+        .clearfix {
+            clear: both;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .ul_reports {
+            padding: 70px 0px 0 0;
+            width: 1200px;
+            height: 313px;
+            margin: 0 auto;
+        }
+
+            .ul_reports ul {
+                list-style: none;
+                padding: 0 8px;
+            }
+
+                .ul_reports ul li {
+                    position: relative;
+                    float: left;
+                    padding: 15px;
+                    border: 1px solid #e3e3e3;
+                    width: 352px;
+                    margin-left: 16px;
+                }
+
+                    .ul_reports ul li:first-child {
+                        margin-left: 0px;
+                    }
+
+                    .ul_reports ul li img {
+                        width: 352px;
+                        height: 187px;
+                    }
+
+                    .ul_reports ul li div:nth-child(2) {
+                        text-align: center;
+                        font-size: 14px;
+                        line-height: 1.5;
+                        width: 350px;
+                        padding: 4px 0;
+                        color: #555;
+                    }
+
+                    .ul_reports ul li div:last-child {
+                        text-align: right;
+                        font-size: 12px;
+                        width: 350px;
+                        padding: 19px 0 0 0;
+                        color: #999;
+                    }
+
+                    .ul_reports ul li:hover {
+                        border-color: #447ed9;
+                    }
+
+                        .ul_reports ul li:hover div:nth-child(2) {
+                            color: #447ed9;
+                        }
+
+        .successful_case {
+            background-color: #f5f5f5;
+        }
+
+        .ul_success {
+            padding: 80px 0px 0px 0px;
+            width: 1200px;
+            height: 296px;
+            margin: 0 auto;
+        }
+
+            .ul_success ul {
+                list-style: none;
+            }
+
+                .ul_success ul li {
+                    padding: 33px 30px;
+                    position: relative;
+                    float: left;
+                    border: 1px solid #e3e3e3;
+                    width: 315px;
+                    margin-left: 24px;
+                }
+
+                    .ul_success ul li:first-child {
+                        margin-left: 10px;
+                    }
+
+                    .ul_success ul li img {
+                        float: left;
+                    }
+
+                    .ul_success ul li span:nth-child(2) {
+                        float: left;
+                        font-size: 20px;
+                        color: #447ed9;
+                        display: inline-block;
+                        margin-left: 20px;
+                        padding-top: 8px;
+                    }
+
+                    .ul_success ul li span:nth-child(3) {
+                        font-size: 14px;
+                        color: #999999;
+                        display: inline-block;
+                        margin-left: 20px;
+                    }
+
+                    .ul_success ul li div {
+                        font-size: 14px;
+                        float: left;
+                        padding-top: 22px;
+                        color: #999999;
+                        line-height: 2;
+                        color: #555;
+                    }
+
+        .ul_small_success {
+            padding-bottom: 73px;
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+            .ul_small_success ul {
+                list-style: none;
+                padding: 0 2px;
+            }
+
+                .ul_small_success ul li {
+                    float: left;
+                    margin: 1px 21px;
+                }
+
+        .strategic_partner {
+        }
+
+        .ul_partner {
+            padding-top: 70px;
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+            .ul_partner ul {
+                list-style: none;
+            }
+
+                .ul_partner ul li {
+                    float: left;
+                    margin: 10px 35px;
+                }
+
+        footer {
+            width: 100%;
+            background: #2e3643;
+            color: #fff;
+            font-size: 14px;
+            padding: 45px 0px;
+            text-align: center;
+        }
+
+            footer div:first-child {
+                width: 1200px;
+                margin: 0 auto;
+            }
+
+            footer ul {
+                list-style: none;
+            }
+
+                footer ul li {
+                    float: left;
+                    text-align: left;
+                    margin: 0 150px;
+                }
+
+                    footer ul li span {
+                        font-size: 16px;
+                        display: block;
+                    }
+
+                    footer ul li a {
+                        margin-top: 10px;
+                        display: block;
+                    }
+
+                        footer ul li a:hover {
+                            text-decoration: underline;
+                            cursor: pointer;
+                        }
+
+            footer .footer {
+                padding-top: 50px;
+            }
+    </style>
+</head>
+
+<body>
+    <!--头部-->
+    <header>
+        <div class="logo">
+            <h1></h1>
+        </div>
+        <div class="top_nav">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li id="product_serivce">
+                    <a href="#">产品与服务</a>
+                    <ul>
+                        <li><a href="#">移动统计</a></li>
+                        <li><a href="#">H5统计</a></li>
+                        <li><a href="#">社交LBS</a></li>
+                        <li><a href="#">双向通信</a></li>
+                        <li><a href="#">数据开放</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">SDK下载</a></li>
+                <li><a href="#">开发文档</a></li>
+                <li><a href="#">数据中心</a></li>
+            </ul>
+            <div class="login">
+                <a href="#">登录</a>
+            </div>
+        </div>
+    </header>
+    <!--轮播图-->
+    <div class="div_banner">
+        <div class="div_banner_content">
+            <ul id="ul_list" class="ul_list">
+                <li style="background-image: url(http://mta.qq.com/mta/resource/imgcache/images/home_081415/banner4.jpg);">
+                    <div class="btn"><a href="#">立即使用</a><a href="#">体验Demo</a></div>
+                </li>
+                <li style="background-image: url(http://mta.qq.com/mta/resource/imgcache/images/home_081415/banner-3.jpg);">
+                    <div class="btn"><a href="#">立即使用</a><a href="#">体验Demo</a></div>
+                </li>
+                <li style="background-image: url(http://mta.qq.com/mta/resource/imgcache/images/home_081415/banner2.jpg);">
+                    <div class="btn"><a href="#">立即使用</a><a href="#">体验Demo</a></div>
+                </li>
+                <li style="background-image: url(http://mta.qq.com/mta/resource/imgcache/images/home_081415/banner1.jpg);">
+                    <div class="btn"><a href="#">立即使用</a><a href="#">体验Demo</a></div>
+                </li>
+            </ul>
+
+        </div>
+        <div class="btn_move">
+            <ul>
+                <li><a href="#" class="acitive"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="div_dongtai">最新动态：HTML5统计全新上线，支持应用、游戏、推广页面精确统计！</div>
+    <!--移动开发者服务-->
+    <div class="build_develop mok_content">
+        <div class="title">
+            移动开发者服务
+            <div>Building & Developing Support</div>
+        </div>
+        <div class="product_serivce_content">
+            <ul>
+                <li>
+                    <a href="#">
+                        <div class="icon icon_1"></div>
+                        <p class="tit">移动统计</p>
+                        <p class="desc">
+                            Android、iOS等主流平台<br />
+                            上的应用数据统计服务
+                        </p>
+                    </a><div class="circle"></div>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="icon icon_2"></div>
+                        <p class="tit">H5统计</p>
+                        <p class="desc">
+                            完美支持HTML5
+                            <br>网页、游戏、应用统计
+                        </p>
+                    </a><div class="circle"></div>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="icon icon_3"></div>
+                        <p class="tit">社交LBS</p>
+                        <p class="desc">
+                            提供“附近的人”能力
+                            <br>位置应用新玩法
+                        </p>
+                    </a><div class="circle"></div>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="icon icon_4"></div>
+                        <p class="tit">双向通信</p>
+                        <p class="desc">
+                            实时的应用内双向通信能力
+                            <br>增强用户活跃
+                        </p>
+                    </a><div class="circle"></div>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="icon icon_5"></div>
+                        <p class="tit">数据开放</p>
+                        <p class="desc">
+                            各种统计接口全面开放
+                            <br>与统计业务无缝对接
+                        </p>
+                    </a><div class="circle"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--产品动态-->
+    <div class="product_trends mok_content">
+        <div class="title">
+            产品动态
+            <div>Product Trends</div>
+        </div>
+        <div class="trends_ul">
+            <ul>
+                <li><a href="#">HTML5统计全新上线！</a> <span>2015-11-20</span></li>
+                <li><a href="#">HTML5统计全新上线！</a> <span>2015-11-20</span></li>
+                <li><a href="#">HTML5统计全新上线！</a> <span>2015-11-20</span></li>
+                <li><a href="#">HTML5统计全新上线！</a> <span>2015-11-20</span></li>
+            </ul>
+            <div class="border"></div>
+            <ul>
+                <li><a href="#">MTA推出移动报！</a> <span>2015-05-05</span></li>
+                <li><a href="#">MTA推出移动报！</a> <span>2015-05-05</span></li>
+                <li><a href="#">MTA推出移动报！</a> <span>2015-05-05</span></li>
+                <li><a href="#">MTA推出移动报！</a> <span>2015-05-05</span></li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+        <div class="btn_more"><a href="#">查看更多</a></div>
+    </div>
+    <!--数据报告-->
+    <div class="data_reports mok_content">
+        <div class="title">
+            数据报告
+            <div>Data Reports</div>
+        </div>
+        <div class="ul_reports">
+            <ul>
+                <li>
+                    <img src="http://mta.qq.com/mta/upload/64016A25-B38E-6CD2-829F-23D1A8236E0F.png" />
+                    <div>70/80/90后春节行为数据报告</div>
+                    <div>2016-02-29</div>
+                </li>
+                <li>
+                    <img src="http://mta.qq.com/mta/upload/9BE160EA-8ECF-4C50-EF34-DFBF2413270F.jpg" />
+                    <div>2015年11/12月移动互联网数据报告</div>
+                    <div>2016-01-14</div>
+                </li>
+                <li>
+                    <img src="http://mta.qq.com/mta/upload/DC26DF48-588E-9444-4E29-7D6314DC82FB.png" />
+                    <div>2015年第三季度移动行业数据报告</div>
+                    <div>2015-10-20</div>
+                </li>
+            </ul>
+        </div>
+        <div class="btn_more"><a href="#">查看更多</a></div>
+    </div>
+    <!--成功案例-->
+    <div class="successful_case mok_content">
+        <div class="title">
+            成功案例
+            <div>Successful Case</div>
+        </div>
+        <div class="ul_success">
+            <ul>
+                <li>
+                    <img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/case/eleme.png" />
+                    <span>饿了么</span>
+                    <span>中国餐饮业O2O平台领跑者</span>
+                    <div>MTA特有的自定义事件在帮助我们分析用户场景、验证需求时非常有用，让我们避开了很多坑。期待新的社交LBS能力帮我们实现更多的场景。</div>
+                </li>
+                <li>
+                    <img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/case/wespeed.png" />
+                    <span>天天酷跑</span>
+                    <span>热门榜TOP精品游戏</span>
+                    <div>天天酷跑发展到现在这个阶段，对数据的要求是越来越精细，我们经常使用漏斗事件来验证我们的一些用户的使用场景，推荐你也深度使用。</div>
+                </li>
+                <li>
+                    <img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/case/tencentvedio.png" />
+                    <span>腾讯视频</span>
+                    <span>中国最大在线视频媒体平台</span>
+                    <div>我们使用MTA已经有一年多了，其中最亮的功能就是自定义事件。给我们提供了很多数据分析上的支持，能够解决很多个性化的需求。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="ul_small_success">
+            <ul>
+                <li>
+                    <img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/case/1-handlol.png">
+                </li>
+                <li>
+                    <img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/case/2-tencentnews.png" alt="">
+                </li>
+                <li>
+                    <img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/case/3-happy.png" alt="">
+                </li>
+                <li>
+                    <img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/case/4-jdfinance.png" alt="">
+                </li>
+                <li>
+                    <img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/case/5-templerun.png" alt="">
+                </li>
+                <li>
+                    <img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/case/6-tonghuashun.png" alt="">
+                </li>
+                <li>
+                    <img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/case/7-subwayrun.png" alt="">
+                </li>
+                <li>
+                    <img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/case/8-pptv.png" alt="">
+                </li>
+                <li>
+                    <img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/case/9-fruitninja.png" alt="">
+                </li>
+                <li>
+                    <img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/case/10-shuame.png" alt="">
+                </li>
+                <li>
+                    <img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/case/11-memotovally.png" alt="">
+                </li>
+                <li>
+                    <img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/case/12-veryzhun.png" alt="">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--合作伙伴-->
+    <div class="strategic_partner mok_content">
+        <div class="title">
+            合作伙伴
+            <div>Strategic Partner</div>
+        </div>
+        <div class="ul_partner">
+            <ul>
+                <li>
+                    <a title="微信" href="#"><img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/partner/1-wechat.png" alt=""></a>
+                </li>
+                <li>
+                    <a title="QQ" href="#"><img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/partner/2-qq.png" alt=""></a>
+                </li>
+                <li>
+                    <a title="QQ空间" href="#"><img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/partner/3-qzone.png" alt=""></a>
+                </li>
+                <li>
+                    <a title="腾讯游戏" href="#"><img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/partner/4-tencentgames.png" alt=""></a>
+                </li>
+                <li>
+                    <a title="QQ互联" href="#"><img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/partner/5-connect.png" alt=""></a>
+                </li>
+                <li>
+                    <a title="腾讯开放平台" href="#"><img src="http://mta.qq.com/mta/resource/imgcache/images/home_081415/partner/6-public.png" alt=""></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--底部-->
+    <footer>
+        <div>
+            <ul>
+                <li>
+                    <span>常见问题</span>
+                    <a>热门问题与解答</a>
+                    <a>自定义事件使用指南</a>
+                    <a>接口API使用指南</a>
+                </li>
+                <li>
+                    <span>热门问题与解答</span>
+                    <a>开发者论坛</a>
+                </li>
+                <li>
+                    <span>友情链接</span>
+                    <a>信鸽推送</a>
+                    <a>腾讯分析</a>
+                    <a>腾讯开放平台</a>
+                    <a>QQ互联</a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+
+            <div class="footer">腾讯云分析 Copyright © 1998 - 2016 Tencent. All Rights Reserved. 腾讯公司 版权所有</div>
+        </div>
+    </footer>
+</body>
+</html>
+<script type="text/javascript">
+    /*浏览器大小改变*/
+    $(window).resize(function () {
+        var width = parseInt($("#ul_list li:eq(1)").css("width"));
+        var index = $(".btn_move>ul>li>.acitive").parent().index();
+        $("#ul_list").css("marginLeft", -index * width);
+    })
+    /*轮播图*/
+    function bannerMove() {
+        var ul = $("#ul_list");
+        var width = parseInt($("#ul_list li:eq(1)").css("width"));
+        var marginLeft = parseInt($("#ul_list").css("marginLeft")) - width;
+        if (marginLeft < -width * 3) {
+            marginLeft = 0;
+        }
+        $(".btn_move>ul>li>a").removeClass("acitive");
+        $(".btn_move").find("ul>li:eq(" + Math.ceil(-marginLeft / width) + ")>a").addClass("acitive");
+        ul.css("marginLeft", marginLeft);
+    }
+    setInterval(bannerMove, 7000);
+    /*轮播图*/
+    $(".btn_move>ul>li").each(function () {
+        $(this).click(function () {
+            var width = parseInt($("#ul_list li:eq(1)").css("width"));
+            $(".btn_move>ul>li>a").removeClass("acitive");
+            $(this).find("a").addClass("acitive");
+            var index = $(this).index();
+            $("#ul_list").css("marginLeft", index * (-width));
+            return false;
+        })
+    })
+</script>
